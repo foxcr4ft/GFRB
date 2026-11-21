@@ -4,6 +4,7 @@ Repositório oficial de documentação, decisões, implementação e histórico 
 
 ## Fonte de verdade
 
+- Catálogo e recuperação de documentos: [Document Catalog](docs/DOCUMENT_CATALOG.md)
 - Regras aprovadas e princípios: [Project Charter](docs/PROJECT_CHARTER.md)
 - Registro de decisões e pendências: [Decision Register](docs/DECISIONS.md)
 - Mapas oficiais: [Map Registry](docs/world/MAP_REGISTRY.md)
@@ -30,7 +31,7 @@ Repositório oficial de documentação, decisões, implementação e histórico 
 - Desenvolvimento autorizado pelo usuário.
 - Fundação técnica 0.1 adicionada à branch `implementation/foundation-0.1`.
 - Código implementado no repositório; execução em Roblox Studio ainda pendente.
-- Próxima etapa: revisão/merge da fundação e consolidação do contrato de dados de personagem e persistência.
+- O catálogo de documentos distingue textos aprovados recuperados de textos ainda não recuperados integralmente.
 
 ## Estrutura
 
