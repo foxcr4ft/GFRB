@@ -175,3 +175,13 @@ Regras:
 ## 10. Limitação desta captura
 
 A busca de arquivos disponível nesta sessão não localizou cópias dos documentos Aethermoor no acervo pesquisável. A busca de contexto das conversas também não retornou os corpos originais nesta tentativa. Assim, este arquivo preserva apenas o conteúdo de projeto efetivamente disponível no contexto de trabalho atual. Não representa uma varredura comprovadamente completa das 47 conversas.
+
+
+## 11. Lotes complementares arquivados
+
+- `RECOVERY_BATCH_0_2_BLOCK_2.md` — registro de recuperação do Bloco 2 e requisitos relacionados.
+- `RECOVERY_BATCH_0_3_BLOCKS_AND_LORE.md` — escopos dos demais blocos e notas de lore recuperadas.
+- `RECOVERY_BATCH_0_4_SPRITES.md` — intervalos de propostas de Sprites e respectivos estados conhecidos.
+- `RECOVERY_BATCH_0_5_LORE_PROPOSAL_UNAPPROVED.md` — detalhes recuperados da proposta de reconciliação de lore v0.3 (Writing Block ID 68241), explicitamente não aprovada.
+
+Os lotes complementam este registro e mantêm separadas decisões canônicas, resumos contextuais e propostas não aprovadas.
