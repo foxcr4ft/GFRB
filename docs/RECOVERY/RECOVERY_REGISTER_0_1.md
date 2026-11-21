@@ -185,3 +185,5 @@ A busca de arquivos disponível nesta sessão não localizou cópias dos documen
 - `RECOVERY_BATCH_0_5_LORE_PROPOSAL_UNAPPROVED.md` — detalhes recuperados da proposta de reconciliação de lore v0.3 (Writing Block ID 68241), explicitamente não aprovada.
 
 Os lotes complementam este registro e mantêm separadas decisões canônicas, resumos contextuais e propostas não aprovadas.
+
+- `RECOVERY_BATCH_0_6_GAP_CHECK.md` — nova busca direcionada sem recuperação de conteúdo substantivo para os Documentos 05–09 e 14, nem material adicional verificável para os demais documentos técnicos e operacionais; registra a lacuna sem inferir conteúdo.
