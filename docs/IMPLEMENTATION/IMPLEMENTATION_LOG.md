@@ -49,3 +49,12 @@ A baseline é uma consolidação a partir do histórico disponível. Ela não af
 2. Executar roteiro manual no Roblox Studio e registrar evidências.
 3. Recuperar/incorporar documentos integrais aprovados que ainda não constam no repositório.
 4. Fechar contrato de dados do personagem e persistência antes de implementar DataStore.
+
+
+## Foundation 0.1 — revalidação — 2026-11-23
+
+- Corrigida a idempotência por jogador em PlayerLifecycleService, incluindo a corrida entre conexão do evento e enumeração inicial.
+- Adicionados casos automatizados Luau compartilhados entre runner do Studio e Lune/CI: 10 passaram no Studio; workflow do GitHub Actions executou os testes e o build Rojo com sucesso.
+- Studio: place Lua Etérea! (89394300657763), versão 0.748.0.7481526; place salvo no Team Create como versão 4, não publicado.
+- Ressalva: os testes de remoção e jogadores múltiplos usam sinais/jogadores simulados; não foi executada uma sessão live com múltiplos clientes.
+- Checklist e relatório atualizados. PR #2 permanece aberta e em draft, sem merge.
