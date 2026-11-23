@@ -46,7 +46,7 @@ A integração da Foundation não significa que persistência ou dados de person
 ## Etapa 2 — próxima entrega
 
 A etapa 2 é contract-first. Antes de DataStore, concluir e aprovar:
-1. Modelo de perfil para até três personagens por conta: um slot inicial; slots 2 e 3 liberados nos níveis 25 e 80, mantendo-se disponíveis enquanto houver personagem criado em cada slot; se o próprio ocupante for excluído permanentemente, o slot volta a ficar bloqueado até novo marco de nível (durante as 24 horas de exclusão pendente, continua disponível); opções masculina/feminina por classe, HUB de criação/seleção/exclusão e exclusão com confirmação e janela de 24 horas para cancelar/recorrer antes da exclusão permanente.
+1. Modelo de perfil para até três personagens por conta: um slot inicial; slots 2 e 3 liberados nos níveis 25 e 80, mantendo-se disponíveis enquanto houver personagem criado em cada slot; se o próprio ocupante for excluído, o slot volta a ficar bloqueado imediatamente até novo marco de nível; opções masculina/feminina por classe, HUB de criação/seleção/exclusão e exclusão permanente imediata após confirmação.
 2. Domínios persistentes do MVP e campos fornecidos por especificações aprovadas.
 3. Envelope versionado, revisão, validação e limites.
 4. Carregamento, salvamento e estados de disponibilidade.
@@ -55,7 +55,7 @@ A etapa 2 é contract-first. Antes de DataStore, concluir e aprovar:
 7. Migrações, compatibilidade e rollback.
 8. Testes automatizados e de integração.
 
-A proposta técnica 0.1 em `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md` registra as decisões de produto sobre slots, criação, HUB e exclusão, além das questões ainda não decididas. Personalização visual adicional continua sem decisão. O contrato não está aprovado e não autoriza implementação de DataStore.
+A proposta técnica 0.1 em `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md` registra as decisões de produto sobre slots, criação, HUB e exclusão imediata, além das questões ainda não decididas. Personalização visual adicional continua sem decisão. O contrato não está aprovado e não autoriza implementação de DataStore.
 
 ## Regra de avanço
 
