@@ -46,7 +46,7 @@ A integração da Foundation não significa que persistência ou dados de person
 ## Etapa 2 — próxima entrega
 
 A etapa 2 é contract-first. Antes de DataStore, concluir e aprovar:
-1. Modelo de perfil e decisão conta versus personagens/slots.
+1. Modelo de perfil para até três personagens por conta, incluindo identidade individual, criação, seleção e exclusão.
 2. Domínios persistentes do MVP e campos fornecidos por especificações aprovadas.
 3. Envelope versionado, revisão, validação e limites.
 4. Carregamento, salvamento e estados de disponibilidade.
