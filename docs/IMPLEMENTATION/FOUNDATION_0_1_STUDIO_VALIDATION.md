@@ -3,7 +3,7 @@
 **Data:** 2026-11-22 (America/Fortaleza)  
 **PR:** [#2 — Foundation 0.1 — Roblox bootstrap and canonical map registry](https://github.com/foxcr4ft/GFRB/pull/2)  
 **Studio:** Place1, modo Edit ao encerrar  
-**Estado:** scripts integrados ao DataModel e validados em Play Test; lugar ainda não salvo; não publicado; PR não mesclada.
+**Estado atual (2026-11-23):** correção integrada e validada; lugar salvo no Team Create (versão 4), não publicado; PR aberta em draft, sem merge.
 
 ## Inspeção prévia
 
@@ -51,4 +51,19 @@ O Studio retornou `NeedsUserAction`: Place1 nunca foi salvo e precisa de **File 
 - Verificação executada no servidor: Bootstrap e PlayerLifecycleService presentes, jogador de teste com `SessionInitialized=true` — PASS.
 - Output atual mostra o bootstrap do servidor e cliente, entrada do jogador e inicialização do cliente sem erro visível. O Output também conserva linhas de playtests anteriores, por isso essas linhas históricas aparecem junto ao teste atual.
 - Play Test deixado em execução como encontrado; nenhuma alteração adicional, salvamento, merge ou publicação feita nesta rechecagem.
+
+
+
+## Revalidação da correção e testes — 2026-11-23
+
+Esta atualização substitui o status pendente registrado acima para a versão atual da branch. O primeiro Place1 e os eventos de 2026-11-22 permanecem como histórico; não são evidência para o código corrigido agora.
+
+- Branch: implementation/foundation-0.1; commit validado no CI: f947e88f5ecd1bc62ce824eb1ecb758643e113eb.
+- Studio: Lua Etérea!, placeId 89394300657763, versão 0.748.0.7481526.
+- PlayerLifecycleService agora mantém uma tabela de jogadores já inicializados, conecta os sinais antes de enumerar os jogadores existentes e ignora entradas/saídas repetidas. Stop() desconecta os sinais; o serviço pode ser iniciado novamente.
+- Play Test: bootstrap do servidor e cliente concluídos sem erro. Runner no servidor: 10 testes, 10 aprovados, 0 falhas.
+- Cobertura: configuração compartilhada e imutável (2); mapas, IDs válidos/inválidos e cópia retornada (3); corrida de inicialização, Start() repetido, múltiplos jogadores simulados, saída duplicada com SessionInitialized=false, e Stop()/reinício (5).
+- A asserção de saída e o cenário com jogadores distintos usam objetos/sinais simulados via dependência injetada. Não foi executado um teste de desconexão em uma sessão real de múltiplos clientes.
+- GitHub Actions no commit acima: Luau tests and Rojo build — success (ambos os checks).
+- O lugar foi salvo no Team Create como versão 4. Não foi publicado. A PR #2 segue aberta, em draft e sem merge.
 
