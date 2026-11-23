@@ -70,4 +70,4 @@ Nunca usar IMPLEMENTED como sinônimo de TESTED.
 - Etapa 2 — contrato de dados e persistência: SPEC IN PROGRESS.
 - Proposta técnica 0.1 em revisão; não aprovada.
 - DataStore: NÃO IMPLEMENTADO.
-- Próximas dependências: decisão sobre perfil por conta versus personagens/slots, definição dos domínios persistentes do MVP e comparação com os textos integrais dos Documentos 12 e 13, se recuperados.
+- Próximas dependências: especificar identidade, criação, seleção e exclusão dos até três personagens por conta; definir os domínios persistentes do MVP e comparar com os textos integrais dos Documentos 12 e 13, se recuperados.
