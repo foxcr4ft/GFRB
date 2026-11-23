@@ -1,7 +1,7 @@
 # Roadmap de Implementação — Aethermoor
 
-**Versão:** 1.0 (plano inicial de execução)  
-**Estado:** Plano de trabalho; a sequência pode ser ajustada por dependências técnicas.
+**Versão:** 1.1  
+**Estado:** Plano de execução atualizado após integração da Foundation 0.1 e dos pacotes documentais.
 
 ## Princípios
 
@@ -11,45 +11,52 @@
 - Não codificar fórmulas ausentes por suposição.
 - Registrar cada entrega e teste no repositório.
 - Não declarar testes aprovados sem execução verificável.
+- Nenhuma PR é mesclada por agente; merge reservado ao usuário.
 
 ## Etapas
 
-| Etapa | Escopo | Estado inicial |
+| Etapa | Escopo | Estado atual |
 |---|---|---|
-| 0 | Repositório, documentação-base e estrutura de projeto | IN_PROGRESS |
-| 1 | Fundação Roblox: bootstraps, configuração, serviços e registro de mapas | BACKLOG |
-| 2 | Contrato de dados do personagem e persistência | BLOCKED por especificação |
-| 3 | Personagem, progressão, classes e atributos | BLOCKED por regras/formulas |
+| 0 | Repositório, documentação-base e estrutura de projeto | IMPLEMENTED — PRs documentais #3 e #4 integradas |
+| 1 | Fundação Roblox: bootstraps, configuração, serviços e registro de mapas | IMPLEMENTED + TESTED — PR #2 integrada; 10/10 testes Luau, CI e build Rojo aprovados; validação Studio registrada |
+| 2 | Contrato de dados do personagem e persistência | SPEC IN PROGRESS — proposta técnica 0.1 em revisão; DataStore não implementado |
+| 3 | Personagem, progressão, classes e atributos | BLOCKED por regras/formulas aprovadas |
 | 4 | Combate, habilidades, inimigos e chefes | BLOCKED por especificação de combate |
 | 5 | Inventário, itens e equipamentos | BLOCKED por contratos e regras |
 | 6 | Mundo, interação, missões e recompensas | BLOCKED por escopo de conteúdo |
 | 7 | Sprites, profissões, coleta e fabricação | BLOCKED por parâmetros e contratos |
 | 8 | Economia e comércio | BLOCKED por regras econômicas |
 | 9 | Multiplayer, grupos, instâncias e guildas | BLOCKED por regras de grupo |
-| 10 | UI/UX e validação multiplataforma contínua | BACKLOG; iniciar protótipos em paralelo após contratos |
-| 11 | Segurança, desempenho, testes integrados e aceitação | BACKLOG |
+| 10 | UI/UX e validação multiplataforma contínua | BACKLOG; protótipos dependem de contratos e escopo |
+| 11 | Segurança, desempenho, testes integrados e aceitação | BACKLOG contínuo |
 | 12 | Preparação de publicação, monitoramento e rollback | BACKLOG |
 
-## Primeira entrega técnica planejada
+## Etapa 1 — resultado registrado
 
-A fundação técnica deve conter:
+A Foundation 0.1 foi integrada à `main` pela PR #2. A entrega contém configuração compartilhada, registro dos sete mapas, bootstraps de servidor/cliente e ciclo de vida básico de jogador.
 
-- Estrutura de pastas/serviços.
-- Configuração compartilhada.
-- Registro dos sete mapas.
-- Inicialização de servidor e cliente.
-- Ciclo de vida de sessão sem persistência prematura.
+Evidências registradas:
+- 10/10 testes Luau aprovados no Roblox Studio.
+- GitHub Actions: suíte Luau e build Rojo aprovados no commit validado.
+- Place salvo no Team Create, não publicado.
+- Testes com múltiplos jogadores e saída usam sinais simulados; não houve teste live com múltiplos clientes.
 
-## Próxima entrega recomendada
+A integração da Foundation não significa que persistência ou dados de personagem estejam implementados.
 
-Contrato de dados de personagem e persistência:
+## Etapa 2 — próxima entrega
 
-1. Esquema versionado.
-2. Campos e tipos.
-3. Defaults e validação.
-4. Estratégia de carregamento/salvamento.
-5. Tratamento de falhas e sessões concorrentes.
-6. Migração e recuperação.
-7. Testes e critérios de aceitação.
+A etapa 2 é contract-first. Antes de DataStore, concluir e aprovar:
+1. Modelo de perfil e decisão conta versus personagens/slots.
+2. Domínios persistentes do MVP e campos fornecidos por especificações aprovadas.
+3. Envelope versionado, revisão, validação e limites.
+4. Carregamento, salvamento e estados de disponibilidade.
+5. Concorrência e concessão de sessão.
+6. Falhas, retries, encerramento e recuperação.
+7. Migrações, compatibilidade e rollback.
+8. Testes automatizados e de integração.
 
-Não integrar DataStore improvisado antes de aprovar o contrato.
+A proposta técnica 0.1 em `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md` registra os requisitos e as questões ainda não decididas. Ela não está aprovada e não autoriza implementação de DataStore.
+
+## Regra de avanço
+
+Não avançar para implementação persistente enquanto o contrato não estiver aprovado e os domínios de gameplay não tiverem fonte confiável. É permitido desenvolver adaptadores e testes isolados sem gravar dados reais, desde que não fixem um esquema ou comportamento de produto ainda pendente.
