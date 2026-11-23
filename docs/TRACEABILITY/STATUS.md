@@ -60,3 +60,14 @@ Cada tarefa deve usar os estados:
 - DEFERRED — planejada para etapa posterior.
 
 Nunca usar IMPLEMENTED como sinônimo de TESTED.
+
+
+## 7. Estado de execução — atualização 2026-11-23
+
+- PR #2 — Foundation 0.1: MERGED; 10/10 testes Luau, GitHub Actions (testes e build Rojo) e validação Studio registrados.
+- PR #3 — Document Recovery 0.1: MERGED.
+- PR #4 — Aethermoor Development Protocol 0.1: MERGED.
+- Etapa 2 — contrato de dados e persistência: SPEC IN PROGRESS.
+- Proposta técnica 0.1 em revisão; não aprovada.
+- DataStore: NÃO IMPLEMENTADO.
+- Próximas dependências: decisão sobre perfil por conta versus personagens/slots, definição dos domínios persistentes do MVP e comparação com os textos integrais dos Documentos 12 e 13, se recuperados.
