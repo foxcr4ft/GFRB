@@ -13,6 +13,17 @@
       },
       "Services": {
         "$path": "src/ServerScriptService/Services"
+      },
+      "UnitTestRunner": {
+        "$path": "tests/roblox/UnitTestRunner.server.luau",
+        "$properties": {
+          "Disabled": true
+        }
+      }
+    },
+    "ServerStorage": {
+      "UnitTest": {
+        "$path": "tests/roblox/UnitTest"
       }
     },
     "StarterPlayer": {
