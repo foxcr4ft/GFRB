@@ -70,4 +70,5 @@ Nunca usar IMPLEMENTED como sinônimo de TESTED.
 - Etapa 2 — contrato de dados e persistência: SPEC IN PROGRESS.
 - Proposta técnica 0.1 em revisão; não aprovada.
 - DataStore: NÃO IMPLEMENTADO.
-- Próximas dependências: especificar identidade, criação, seleção e exclusão dos até três personagens por conta; definir os domínios persistentes do MVP e comparar com os textos integrais dos Documentos 12 e 13, se recuperados.
+- Decisões de produto registradas na proposta: até três personagens por conta; um slot inicial, segundo no nível 25 e terceiro no nível 80; criação inicial masculina/feminina por classe; HUB para criação/seleção/exclusão; exclusão mediante seleção e confirmação, com 24 horas para cancelar/recorrer antes da exclusão permanente.
+- Pendências: persistência dos desbloqueios dos slots e efeito da exclusão do personagem que atingiu o marco; fluxo de cancelamento/recorrência; personalização visual adicional não decidida; domínios persistentes do MVP; confronto com os textos integrais dos Documentos 12 e 13, se recuperados.
