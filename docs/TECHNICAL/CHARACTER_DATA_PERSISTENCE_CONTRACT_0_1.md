@@ -57,7 +57,7 @@ Regras propostas:
 - Campos desconhecidos não podem ser silenciosamente reinterpretados como valores válidos.
 - Limites máximos de tamanho, profundidade e quantidade de elementos precisam ser definidos e testados antes de produção; não são fixados nesta proposta.
 
-**Decisões de produto registradas — slots e personagens:** cada conta Roblox poderá possuir **até 3 personagens**, mas começará com apenas **1 slot disponível**. O segundo slot será liberado quando um personagem atingir o nível 25; o terceiro, quando um personagem atingir o nível 80. O desbloqueio de cada slot é condicionado à existência de um personagem criado naquele próprio slot: se o personagem que atingiu o marco de nível for excluído depois que outro personagem já tiver sido criado no slot liberado, o slot permanece disponível porque o personagem criado nele continua existindo. A mesma regra se aplica ao slot liberado no nível 80. Portanto, o marco de nível permite abrir o slot, mas a continuidade de sua disponibilidade depende da existência do personagem criado nele; não é um desbloqueio permanente independente dos personagens. Cada personagem terá identidade persistente própria e dados isolados. A conta proprietária será identificada pelo `UserId` Roblox, e cada personagem terá identificador estável próprio.
+**Decisões de produto registradas — slots e personagens:** cada conta Roblox poderá possuir **até 3 personagens**, mas começará com apenas **1 slot disponível**. O segundo slot será liberado quando um personagem atingir o nível 25; o terceiro, quando um personagem atingir o nível 80. O desbloqueio de cada slot é condicionado à existência de um personagem criado naquele próprio slot: se o personagem que atingiu o marco de nível for excluído depois que outro personagem já tiver sido criado no slot liberado, o slot permanece disponível porque o personagem criado nele continua existindo. A mesma regra se aplica ao slot liberado no nível 80. Se o próprio personagem que ocupa o slot adicional for excluído permanentemente, o slot volta a ficar bloqueado e só poderá ser liberado novamente quando outro personagem atingir o marco correspondente (nível 25 para o slot 2; nível 80 para o slot 3). Durante as 24 horas em que a exclusão estiver pendente e puder ser cancelada, o personagem ainda existe e mantém o slot disponível. Portanto, o marco de nível permite abrir o slot, mas a continuidade depende da existência do personagem criado nele; não é um desbloqueio permanente independente dos personagens. Cada personagem terá identidade persistente própria e dados isolados. A conta proprietária será identificada pelo `UserId` Roblox, e cada personagem terá identificador estável próprio.
 
 **Criação e apresentação:** inicialmente, a criação ficará limitada às opções masculina e feminina disponíveis para cada classe. A existência de personalização adicional de aparência permanece NÃO DECIDIDA; não presumir controles, opções ou limites de personalização.
 
@@ -75,7 +75,7 @@ Os seguintes domínios são apenas áreas candidatas para contratos próprios; n
 
 | Domínio | Estado | Dependência |
 |---|---|---|
-| Identidade/quantidade de personagens | DECIDIDO: até 3 por conta; 1 slot inicial; slots 2 e 3 liberados nos níveis 25 e 80; disponibilidade contínua condicionada à existência de personagem criado em cada slot | `UserId` da conta + identificador estável individual; validar existência dos personagens para determinar slots disponíveis |
+| Identidade/quantidade de personagens | DECIDIDO: até 3 por conta; 1 slot inicial; slots 2 e 3 liberados nos níveis 25 e 80; cada slot adicional permanece disponível enquanto existir o personagem criado nele; exclusão permanente desse ocupante volta a bloquear o slot até novo marco de nível | `UserId` da conta + identificador estável individual; validar existência e estado de exclusão dos personagens para determinar slots disponíveis |
 | Criação e HUB | DECIDIDO EM NÍVEL DE PRODUTO: opções masculina/feminina por classe; HUB para criação/seleção/exclusão | Catálogo inicial de classes e opções; fluxo de interface ainda a especificar |
 | Personalização visual | NÃO DECIDIDA | Não implementar opções de personalização antes de decisão de game design |
 | Exclusão de personagem | DECIDIDO: seleção + confirmação; janela de 24h para recorrer/cancelar; depois, exclusão permanente | Estado de exclusão pendente, relógio do servidor, cancelamento, expiração e recuperação precisam de contrato técnico |
@@ -203,7 +203,7 @@ A etapa só pode passar para implementação quando:
 
 - [x] Decisões de produto: até três personagens por conta; um slot inicial; segundo slot no nível 25 e terceiro no nível 80; criação inicial masculina/feminina por classe; HUB de personagens; exclusão com confirmação e janela de 24 horas para cancelar/recorrer antes da exclusão permanente.
 - [x] Regra de disponibilidade dos slots definida: após a criação de um personagem no slot liberado, a exclusão do personagem que atingiu o marco não fecha o slot enquanto o personagem criado nele continuar existindo. O mesmo vale para os slots 2 e 3.
-- [ ] Definir o comportamento operacional quando o próprio personagem que ocupa o slot adicional for excluído e como o slot volta a ser liberado por novo marco de nível.
+- [x] Definido: se o personagem ocupante do slot adicional for excluído permanentemente, o slot volta a ficar bloqueado até outro personagem atingir o marco correspondente (nível 25 ou 80). Durante a janela de 24 horas de exclusão pendente, o personagem ainda existe e mantém o slot disponível.
 - [ ] Especificar o fluxo de criação/seleção no HUB e o fluxo técnico de cancelamento da exclusão pendente.
 - [ ] Decidir se haverá personalização visual além das opções masculina/feminina por classe; não implementar antes dessa decisão.
 - [ ] Definir o que significa operacionalmente “recorrer” (cancelamento direto pelo usuário no HUB ou outro fluxo), mantendo o prazo de 24 horas.
@@ -221,7 +221,7 @@ A etapa só pode passar para implementação quando:
 
 Estas questões não devem ser decididas por conveniência técnica:
 
-1. Definir o fluxo operacional quando o próprio personagem que ocupa o segundo ou terceiro slot for excluído; a disponibilidade contínua depende da existência desse personagem no slot.
+1. O comportamento após a exclusão do próprio personagem que ocupa um slot adicional está decidido: após a exclusão permanente, o slot volta a ficar bloqueado até outro personagem atingir o marco correspondente. Durante a janela de 24 horas de exclusão pendente, o slot permanece disponível.
 2. Como será o fluxo de criação e seleção no HUB e o cancelamento de uma exclusão pendente?
 3. O termo “recorrer” significa cancelar a exclusão diretamente no HUB ou haverá outro fluxo?
 4. Haverá personalização visual além das opções masculina/feminina por classe?
@@ -239,6 +239,6 @@ As decisões técnicas sobre implementação interna da concessão de sessão, r
 - **Código DataStore:** não implementado.
 - **Testes de persistência:** não executados; ainda não há implementação.
 - **Decisões de produto incorporadas:** até três personagens por conta; um slot inicial; segundo slot ao nível 25 e terceiro ao nível 80; opções masculina/feminina por classe; HUB para criação/seleção/exclusão; exclusão mediante seleção e confirmação, com 24 horas para recorrer/cancelar antes da exclusão permanente. Cada perfil deve ser identificado e persistido separadamente, associado ao `UserId` proprietário.
-- **Pendente de game design:** personalização visual adicional não decidida. Permanece pendente o comportamento operacional após a exclusão do próprio personagem que ocupa um slot adicional, além do fluxo exato de cancelamento/recorrência.
+- **Pendente de game design:** personalização visual adicional não decidida. O comportamento dos slots após exclusão está definido: o slot adicional permanece disponível durante a janela de 24 horas; após a exclusão permanente do personagem que o ocupa, volta a ficar bloqueado até novo marco de nível. O fluxo exato de cancelamento/recorrência ainda precisa ser especificado.
 - **Possibilidade futura registrada:** avaliar mudança de classe em etapa própria, sem regras definidas nesta proposta.
 - **Próximo passo:** revisão das decisões ainda pendentes e recuperação dos textos integrais dos Documentos 12/13, se disponíveis. Só então consolidar contrato aprovado e iniciar implementação.
