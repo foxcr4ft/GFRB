@@ -1,7 +1,7 @@
 # Foundation 0.1 — Implementação inicial
 
-**Branch:** `implementation/foundation-0.1`  
-**Estado:** Implementado e validado em Roblox Studio e GitHub Actions (2026-11-23); PR aberta em draft.  
+**Branch original:** `implementation/foundation-0.1`  
+**Estado atual:** MERGED em `main` pela PR #2; implementado e validado em Roblox Studio e GitHub Actions (2026-11-23).  
 **Escopo:** Bootstrap mínimo, configuração compartilhada, registro canônico de mapas e ciclo de vida básico de jogador.
 
 ## Arquivos
@@ -31,12 +31,12 @@ Esses sistemas dependem de contratos e regras específicos; não serão inventad
 
 ## Validação
 
-- Revisão estrutural dos arquivos: realizada nesta entrega.
-- Execução em Roblox Studio: 10/10 testes automatizados passaram; bootstrap servidor/cliente sem erro.
-- GitHub Actions: suíte Luau e build Rojo passaram no commit f947e88f5ecd1bc62ce824eb1ecb758643e113eb.
-- A saída com SessionInitialized=false e entradas de múltiplos jogadores foram verificadas com sinais simulados; não houve teste live de múltiplos clientes.
-- Resultados detalhados: tests/manual/FOUNDATION_0_1.md e docs/IMPLEMENTATION/FOUNDATION_0_1_STUDIO_VALIDATION.md.
+- 10/10 testes Luau passaram no runner do Roblox Studio.
+- GitHub Actions: testes Luau e build Rojo passaram no commit `f947e88f5ecd1bc62ce824eb1ecb758643e113eb`.
+- Bootstrap de servidor e cliente executaram sem erro no Play Test registrado.
+- A saída com `SessionInitialized=false` e entradas de múltiplos jogadores foram verificadas com sinais simulados; não houve teste live de múltiplos clientes.
+- Evidências detalhadas: `tests/manual/FOUNDATION_0_1.md` e `docs/IMPLEMENTATION/FOUNDATION_0_1_STUDIO_VALIDATION.md`.
 
 ## Próxima etapa
 
-Integrar os documentos integrais disponíveis e fechar o contrato técnico de dados de personagem/persistência antes de escrever o serviço DataStore.
+Concluir e aprovar o contrato técnico de dados do personagem e persistência antes de implementar DataStore. A proposta técnica 0.1 está em elaboração e não constitui aprovação de esquema.
