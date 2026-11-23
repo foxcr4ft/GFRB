@@ -57,7 +57,9 @@ Regras propostas:
 - Campos desconhecidos não podem ser silenciosamente reinterpretados como valores válidos.
 - Limites máximos de tamanho, profundidade e quantidade de elementos precisam ser definidos e testados antes de produção; não são fixados nesta proposta.
 
-**Decisão pendente:** confirmar se a persistência será um perfil agregado por conta ou se haverá personagens/slots separados. O projeto ainda não fornece regra aprovada para quantidade, identidade ou seleção de personagens. Portanto, nenhuma chave definitiva de DataStore é estabelecida aqui.
+**Decisão de produto registrada:** uma conta Roblox terá um único personagem no modelo inicial. Não haverá slots nem seleção de personagens. A identidade do registro persistente será derivada no servidor do `UserId` da conta Roblox, resultando em um perfil por conta. A forma concreta da chave DataStore continua sendo decisão de implementação técnica, mas não deverá introduzir slots ou múltiplos personagens.
+
+**Possibilidade futura, ainda não aprovada como sistema:** o usuário indicou que uma possível mudança de classe poderá ser avaliada no futuro. Isso não autoriza definir agora regras, custos, frequência, restrições, preservação de progresso ou fluxo de mudança. Também não altera a regra atual de um personagem por conta.
 
 ## 4. Domínios do payload
 
@@ -65,7 +67,7 @@ Os seguintes domínios são apenas áreas candidatas para contratos próprios; n
 
 | Domínio | Estado | Dependência |
 |---|---|---|
-| Identidade/seleção de personagem | PENDENTE | Decisão sobre personagens e slots |
+| Identidade do personagem | DECIDIDO EM NÍVEL DE PRODUTO: um personagem por conta | `UserId` Roblox; detalhes técnicos do registro pendentes |
 | Classe/especialização | PENDENTE | Catálogo e regras aprovadas |
 | Atributos/progressão | PENDENTE | Documento de atributos e fórmulas |
 | Habilidades/talentos | PENDENTE | Catálogo e desbloqueios |
@@ -156,7 +158,7 @@ Proposta:
 
 ## 10. Segurança, privacidade e abuso
 
-- A chave de armazenamento, quando aprovada, deve ser derivada no servidor de identificador estável da conta Roblox; nunca aceitar chave do cliente.
+- A chave de armazenamento deve ser derivada no servidor do identificador estável da conta Roblox (`UserId`), mantendo um único perfil/personagem por conta no modelo inicial; nunca aceitar chave do cliente. O formato exato da chave permanece decisão técnica de implementação.
 - Validar tipo, estrutura, tamanho, frequência e contexto das solicitações.
 - Limitar chamadas de salvamento para evitar abuso e esgotamento de orçamento.
 - Não confiar em timestamps, revisões ou tokens fornecidos pelo cliente.
@@ -187,7 +189,7 @@ Testes unitários devem usar adaptador/mocks isolados. Testes de integração pr
 
 A etapa só pode passar para implementação quando:
 
-- [ ] Decisão de perfil por conta versus personagens/slots resolvida.
+- [x] Decisão de produto: um personagem por conta, sem slots. A chave técnica concreta ainda deve ser definida na implementação.
 - [ ] Domínios e campos persistentes aprovados ou explicitamente excluídos do MVP.
 - [ ] Envelope, versão, revisão e limites aprovados.
 - [ ] Política de aquisição, renovação e liberação de sessão definida.
@@ -202,11 +204,12 @@ A etapa só pode passar para implementação quando:
 
 Estas questões não devem ser decididas por conveniência técnica:
 
-1. O jogador terá um único personagem por conta ou múltiplos personagens/slots?
-2. Quais domínios de dados entram no MVP persistente?
-3. Quais documentos/requisitos aprovados fornecem os campos e invariantes de cada domínio?
-4. Qual deve ser a experiência do jogador quando os dados não puderem ser carregados por indisponibilidade prolongada?
-5. Há política de exclusão/retensão de dados já definida em documento aprovado ainda não recuperado?
+1. Quais domínios de dados entram no MVP persistente?
+2. Quais documentos/requisitos aprovados fornecem os campos e invariantes de cada domínio?
+3. Qual deve ser a experiência do jogador quando os dados não puderem ser carregados por indisponibilidade prolongada?
+4. Há política de exclusão/retensão de dados já definida em documento aprovado ainda não recuperado?
+
+**Nota de escopo futuro:** uma eventual mudança de classe foi mencionada como possibilidade a avaliar posteriormente. Nenhuma regra desse sistema está aprovada ou especificada por esta proposta.
 
 As decisões técnicas sobre implementação interna da concessão de sessão, retries e adaptadores podem ser refinadas como propostas reversíveis após as dependências acima.
 
@@ -215,4 +218,6 @@ As decisões técnicas sobre implementação interna da concessão de sessão, r
 - **Especificação:** proposta técnica v0.1 criada; não aprovada.
 - **Código DataStore:** não implementado.
 - **Testes de persistência:** não executados; ainda não há implementação.
-- **Próximo passo:** revisão das decisões pendentes e recuperação dos textos integrais dos Documentos 12/13, se disponíveis. Só então consolidar contrato aprovado e iniciar implementação.
+- **Decisão de produto incorporada:** um personagem por conta Roblox; perfil identificado a partir do `UserId`, sem slots.
+- **Possibilidade futura registrada:** avaliar mudança de classe em etapa própria, sem regras definidas nesta proposta.
+- **Próximo passo:** revisão das decisões ainda pendentes e recuperação dos textos integrais dos Documentos 12/13, se disponíveis. Só então consolidar contrato aprovado e iniciar implementação.
