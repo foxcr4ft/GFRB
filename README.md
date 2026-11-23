@@ -4,12 +4,14 @@ Repositório oficial de documentação, decisões, implementação e histórico 
 
 ## Fonte de verdade
 
+- Catálogo e recuperação de documentos: [Document Catalog](docs/DOCUMENT_CATALOG.md)
 - Regras aprovadas e princípios: [Project Charter](docs/PROJECT_CHARTER.md)
 - Registro de decisões e pendências: [Decision Register](docs/DECISIONS.md)
 - Mapas oficiais: [Map Registry](docs/world/MAP_REGISTRY.md)
 - Estado documental e rastreabilidade: [Document Status](docs/TRACEABILITY/STATUS.md)
 - Plano de desenvolvimento: [Implementation Roadmap](docs/IMPLEMENTATION/ROADMAP.md)
 - Histórico de entregas: [Implementation Log](docs/IMPLEMENTATION/IMPLEMENTATION_LOG.md)
+- Fundação técnica 0.1: [Foundation 0.1](docs/IMPLEMENTATION/FOUNDATION_0_1.md)
 
 ## Regras de trabalho
 
@@ -24,17 +26,18 @@ Repositório oficial de documentação, decisões, implementação e histórico 
 
 ## Estado atual
 
-- Repositório inicializado com baseline documental.
+- Baseline documental integrada à `main`.
 - Auditorias documentais anteriores já realizadas; não repetir como etapa de rotina.
 - Desenvolvimento autorizado pelo usuário.
-- Fundação técnica inicial foi gerada como pacote preparatório, mas ainda não foi importada nem validada no Roblox Studio.
-- Próxima etapa: integrar os documentos-fonte disponíveis e consolidar o primeiro módulo de código com testes.
+- Fundação técnica 0.1 adicionada à branch `implementation/foundation-0.1`.
+- Código implementado no repositório; execução em Roblox Studio ainda pendente.
+- O catálogo de documentos distingue textos aprovados recuperados de textos ainda não recuperados integralmente.
 
 ## Estrutura
 
 ```
 docs/       Regras, decisões, especificações, rastreabilidade e planos
-src/        Código-fonte Roblox (Luau), quando integrado e validado
+src/        Código-fonte Roblox (Luau)
 tests/      Testes automatizados e roteiros de teste
 tools/      Ferramentas auxiliares
 ```

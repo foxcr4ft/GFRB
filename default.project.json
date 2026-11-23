@@ -1,0 +1,35 @@
+{
+  "name": "Aethermoor",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/ReplicatedStorage/Shared"
+      }
+    },
+    "ServerScriptService": {
+      "Bootstrap": {
+        "$path": "src/ServerScriptService/Bootstrap.server.luau"
+      },
+      "Services": {
+        "$path": "src/ServerScriptService/Services"
+      },
+      "UnitTestRunner": {
+        "$path": "tests/roblox/UnitTestRunner.server.luau",
+        "$properties": {
+          "Disabled": true
+        }
+      }
+    },
+    "ServerStorage": {
+      "UnitTest": {
+        "$path": "tests/roblox/UnitTest"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "src/StarterPlayer/StarterPlayerScripts"
+      }
+    }
+  }
+}

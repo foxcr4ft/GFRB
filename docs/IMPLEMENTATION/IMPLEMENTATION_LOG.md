@@ -1,27 +1,60 @@
 # Implementation Log
 
-## Baseline — 2026-11-21
+## Baseline documental — 2026-11-21
 
 ### Repositório
 - Repositório: https://github.com/foxcr4ft/GFRB
-- Branch de trabalho documental: docs/project-baseline
-- Baseline documental criada antes da integração de código.
+- Branch documental: `docs/project-baseline` (merge confirmado pelo usuário).
+- Conteúdo: Project Charter, Decision Register, Map Registry, estado de auditorias/rastreabilidade e roadmap.
 
-### Conteúdo registrado
-- Project Charter.
-- Decision Register.
-- Registro oficial dos sete mapas.
-- Estado das auditorias e rastreabilidade.
-- Roadmap de implementação.
-- Regras de atualização do repositório.
+### Observação de integridade documental
+A baseline é uma consolidação a partir do histórico disponível. Ela não afirma conter a transcrição integral de todos os documentos aprovados. Textos integrais serão incorporados quando recuperados, mantendo versão e natureza (original ou reconstrução editorial).
 
-### Estado de código
-Um pacote preparatório chamado **Aethermoor Foundation 0.1** foi gerado na conversa anterior e disponibilizado como ZIP. Ele contém bootstraps mínimos, configuração compartilhada, registro de mapas e ciclo de vida básico do jogador.
+## Foundation 0.1 — 2026-11-21
 
-**Importante:** a geração do ZIP não prova que o código foi importado, executado ou testado no Roblox Studio. Nesta baseline ele ainda não está registrado como código integrado nem como entrega testada no repositório.
+### Branch
+`implementation/foundation-0.1`
 
-### Próximos passos
-1. Incorporar os documentos integrais aprovados que estiverem disponíveis, preservando versões e distinção entre reconstruções editoriais e textos originais.
-2. Integrar a fundação técnica em branch de código após revisão do pacote.
-3. Executar teste no Roblox Studio e registrar evidências/resultado.
-4. Iniciar contrato de dados e persistência.
+### Arquivos adicionados
+- `src/ReplicatedStorage/Shared/ProjectConfig.luau`
+- `src/ReplicatedStorage/Shared/MapRegistry.luau`
+- `src/ServerScriptService/Services/PlayerLifecycleService.luau`
+- `src/ServerScriptService/Bootstrap.server.luau`
+- `src/StarterPlayer/StarterPlayerScripts/ClientBootstrap.client.luau`
+- `default.project.json`
+- `tests/manual/FOUNDATION_0_1.md`
+- `docs/IMPLEMENTATION/FOUNDATION_0_1.md`
+
+### Implementado
+- Configuração compartilhada e imutável.
+- Registro dos sete mapas com IDs permanentes e nomes oficiais.
+- Bootstrap de servidor e cliente.
+- Serviço mínimo de ciclo de vida do jogador.
+- Verificação do número e continuidade dos IDs de mapa no cliente.
+- Mapeamento de projeto Rojo.
+
+### Testes e evidências
+- Arquivos gravados na branch do GitHub: confirmado.
+- Execução em Roblox Studio: NÃO EXECUTADA.
+- Testes Luau automatizados: NÃO EXECUTADOS.
+- Roteiro manual de aceitação criado em `tests/manual/FOUNDATION_0_1.md`.
+
+### Limitações conhecidas
+- Nenhuma persistência de dados nesta entrega.
+- `SessionInitialized` significa apenas que o hook básico de sessão executou; não indica dados carregados.
+- Não inclui criação de personagem, classes, progressão, combate, inventário, Sprites, missões, economia ou UI.
+
+### Próximas ações
+1. Revisar e integrar esta branch.
+2. Executar roteiro manual no Roblox Studio e registrar evidências.
+3. Recuperar/incorporar documentos integrais aprovados que ainda não constam no repositório.
+4. Fechar contrato de dados do personagem e persistência antes de implementar DataStore.
+
+
+## Foundation 0.1 — revalidação — 2026-11-23
+
+- Corrigida a idempotência por jogador em PlayerLifecycleService, incluindo a corrida entre conexão do evento e enumeração inicial.
+- Adicionados casos automatizados Luau compartilhados entre runner do Studio e Lune/CI: 10 passaram no Studio; workflow do GitHub Actions executou os testes e o build Rojo com sucesso.
+- Studio: place Lua Etérea! (89394300657763), versão 0.748.0.7481526; place salvo no Team Create como versão 4, não publicado.
+- Ressalva: os testes de remoção e jogadores múltiplos usam sinais/jogadores simulados; não foi executada uma sessão live com múltiplos clientes.
+- Checklist e relatório atualizados. PR #2 permanece aberta e em draft, sem merge.
