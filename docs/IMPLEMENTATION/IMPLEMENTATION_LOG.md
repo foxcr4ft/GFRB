@@ -58,3 +58,13 @@ A baseline é uma consolidação a partir do histórico disponível. Ela não af
 - Studio: place Lua Etérea! (89394300657763), versão 0.748.0.7481526; place salvo no Team Create como versão 4, não publicado.
 - Ressalva: os testes de remoção e jogadores múltiplos usam sinais/jogadores simulados; não foi executada uma sessão live com múltiplos clientes.
 - Checklist e relatório atualizados. PR #2 permanece aberta e em draft, sem merge.
+
+
+## Integração das PRs e início da etapa 2 — 2026-11-23
+
+- PR #2 — Foundation 0.1: integrada à `main`; bootstrap, registro de mapas e ciclo básico de jogador validados.
+- PR #3 — recuperação documental: integrada à `main`; preserva proveniência e limites da recuperação.
+- PR #4 — Aethermoor Development Protocol: integrada à `main`; autonomia técnica com merge reservado ao usuário.
+- Próxima etapa: contrato técnico de dados do personagem e persistência, antes de qualquer DataStore.
+- Criada a proposta `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md`, ainda não aprovada. DataStore não implementado.
+- Atualizados roadmap, README e estado da Foundation para refletir as integrações reais.
