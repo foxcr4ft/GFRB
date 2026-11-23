@@ -1,7 +1,7 @@
 # Foundation 0.1 — Implementação inicial
 
 **Branch:** `implementation/foundation-0.1`  
-**Estado:** Implementado no repositório; teste em Roblox Studio pendente.  
+**Estado:** Implementado e validado em Roblox Studio e GitHub Actions (2026-11-23); PR aberta em draft.  
 **Escopo:** Bootstrap mínimo, configuração compartilhada, registro canônico de mapas e ciclo de vida básico de jogador.
 
 ## Arquivos
@@ -32,9 +32,10 @@ Esses sistemas dependem de contratos e regras específicos; não serão inventad
 ## Validação
 
 - Revisão estrutural dos arquivos: realizada nesta entrega.
-- Execução em Roblox Studio: pendente.
-- Testes automatizados Luau: não executados neste ambiente.
-- Critérios e procedimento: `tests/manual/FOUNDATION_0_1.md`.
+- Execução em Roblox Studio: 10/10 testes automatizados passaram; bootstrap servidor/cliente sem erro.
+- GitHub Actions: suíte Luau e build Rojo passaram no commit f947e88f5ecd1bc62ce824eb1ecb758643e113eb.
+- A saída com SessionInitialized=false e entradas de múltiplos jogadores foram verificadas com sinais simulados; não houve teste live de múltiplos clientes.
+- Resultados detalhados: tests/manual/FOUNDATION_0_1.md e docs/IMPLEMENTATION/FOUNDATION_0_1_STUDIO_VALIDATION.md.
 
 ## Próxima etapa
 
