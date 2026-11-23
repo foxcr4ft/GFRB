@@ -67,3 +67,10 @@ Esta atualização substitui o status pendente registrado acima para a versão a
 - GitHub Actions no commit acima: Luau tests and Rojo build — success (ambos os checks).
 - O lugar foi salvo no Team Create como versão 4. Não foi publicado. A PR #2 segue aberta, em draft e sem merge.
 
+
+
+## Atualização de estado após merge — 2026-11-23
+
+A PR #2 foi integrada à `main`. A PR #3 (recuperação documental) e a PR #4 (protocolo de desenvolvimento) também foram integradas. As referências históricas acima que descrevem as PRs como abertas/sem merge registram o estado no momento em que foram escritas; não representam o estado atual do repositório.
+
+A Foundation 0.1 está validada conforme os testes e ressalvas descritos neste relatório. Não houve publicação da experiência. A persistência/DataStore continua fora do escopo implementado; a etapa 2 está em especificação.
