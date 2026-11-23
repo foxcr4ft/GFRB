@@ -57,9 +57,9 @@ Regras propostas:
 - Campos desconhecidos não podem ser silenciosamente reinterpretados como valores válidos.
 - Limites máximos de tamanho, profundidade e quantidade de elementos precisam ser definidos e testados antes de produção; não são fixados nesta proposta.
 
-**Decisão de produto registrada:** uma conta Roblox terá um único personagem no modelo inicial. Não haverá slots nem seleção de personagens. A identidade do registro persistente será derivada no servidor do `UserId` da conta Roblox, resultando em um perfil por conta. A forma concreta da chave DataStore continua sendo decisão de implementação técnica, mas não deverá introduzir slots ou múltiplos personagens.
+**Decisão de produto registrada:** cada conta Roblox poderá possuir **até 3 personagens**. O limite é de três personagens por conta; não se define aqui se todos os espaços estarão disponíveis desde o início, se haverá desbloqueio, nem qualquer regra de criação, exclusão ou seleção. Cada personagem deverá ter identidade persistente própria e dados isolados dos demais. A conta proprietária será identificada pelo `UserId` Roblox, e cada personagem terá também um identificador estável próprio. A estrutura e a chave concretas do DataStore continuam sendo decisões técnicas a detalhar, mas devem permitir localizar e proteger separadamente até três perfis pertencentes à mesma conta.
 
-**Possibilidade futura, ainda não aprovada como sistema:** o usuário indicou que uma possível mudança de classe poderá ser avaliada no futuro. Isso não autoriza definir agora regras, custos, frequência, restrições, preservação de progresso ou fluxo de mudança. Também não altera a regra atual de um personagem por conta.
+**Possibilidade futura, ainda não aprovada como sistema:** o usuário indicou que uma possível mudança de classe poderá ser avaliada no futuro. Isso não autoriza definir agora regras, custos, frequência, restrições, preservação de progresso ou fluxo de mudança. A possibilidade é independente da quantidade de personagens por conta.
 
 ## 4. Domínios do payload
 
@@ -67,7 +67,7 @@ Os seguintes domínios são apenas áreas candidatas para contratos próprios; n
 
 | Domínio | Estado | Dependência |
 |---|---|---|
-| Identidade do personagem | DECIDIDO EM NÍVEL DE PRODUTO: um personagem por conta | `UserId` Roblox; detalhes técnicos do registro pendentes |
+| Identidade/quantidade de personagens | DECIDIDO EM NÍVEL DE PRODUTO: até 3 personagens por conta | `UserId` da conta + identificador estável individual do personagem; estrutura técnica pendente |
 | Classe/especialização | PENDENTE | Catálogo e regras aprovadas |
 | Atributos/progressão | PENDENTE | Documento de atributos e fórmulas |
 | Habilidades/talentos | PENDENTE | Catálogo e desbloqueios |
@@ -158,7 +158,7 @@ Proposta:
 
 ## 10. Segurança, privacidade e abuso
 
-- A chave de armazenamento deve ser derivada no servidor do identificador estável da conta Roblox (`UserId`), mantendo um único perfil/personagem por conta no modelo inicial; nunca aceitar chave do cliente. O formato exato da chave permanece decisão técnica de implementação.
+- A identidade de armazenamento deve ser derivada no servidor, associando o identificador estável da conta Roblox (`UserId`) ao identificador estável individual do personagem. O modelo deve suportar até três personagens isolados por conta; nunca aceitar identificadores ou chaves fornecidos pelo cliente sem validação de propriedade e contexto. O formato exato da chave e a estrutura de índice/seleção permanecem decisões técnicas de implementação.
 - Validar tipo, estrutura, tamanho, frequência e contexto das solicitações.
 - Limitar chamadas de salvamento para evitar abuso e esgotamento de orçamento.
 - Não confiar em timestamps, revisões ou tokens fornecidos pelo cliente.
@@ -189,7 +189,7 @@ Testes unitários devem usar adaptador/mocks isolados. Testes de integração pr
 
 A etapa só pode passar para implementação quando:
 
-- [x] Decisão de produto: um personagem por conta, sem slots. A chave técnica concreta ainda deve ser definida na implementação.
+- [x] Decisão de produto: até três personagens por conta. A disponibilidade dos espaços e as regras de criação/exclusão/seleção ainda precisam ser definidas; a estrutura técnica concreta deve isolar os perfis.
 - [ ] Domínios e campos persistentes aprovados ou explicitamente excluídos do MVP.
 - [ ] Envelope, versão, revisão e limites aprovados.
 - [ ] Política de aquisição, renovação e liberação de sessão definida.
@@ -204,10 +204,11 @@ A etapa só pode passar para implementação quando:
 
 Estas questões não devem ser decididas por conveniência técnica:
 
-1. Quais domínios de dados entram no MVP persistente?
-2. Quais documentos/requisitos aprovados fornecem os campos e invariantes de cada domínio?
-3. Qual deve ser a experiência do jogador quando os dados não puderem ser carregados por indisponibilidade prolongada?
-4. Há política de exclusão/retensão de dados já definida em documento aprovado ainda não recuperado?
+1. Como funcionarão criação, seleção e exclusão de personagens, respeitando o limite de até três por conta?
+2. Quais domínios de dados entram no MVP persistente?
+3. Quais documentos/requisitos aprovados fornecem os campos e invariantes de cada domínio?
+4. Qual deve ser a experiência do jogador quando os dados não puderem ser carregados por indisponibilidade prolongada?
+5. Há política de exclusão/retensão de dados já definida em documento aprovado ainda não recuperado?
 
 **Nota de escopo futuro:** uma eventual mudança de classe foi mencionada como possibilidade a avaliar posteriormente. Nenhuma regra desse sistema está aprovada ou especificada por esta proposta.
 
@@ -218,6 +219,6 @@ As decisões técnicas sobre implementação interna da concessão de sessão, r
 - **Especificação:** proposta técnica v0.1 criada; não aprovada.
 - **Código DataStore:** não implementado.
 - **Testes de persistência:** não executados; ainda não há implementação.
-- **Decisão de produto incorporada:** um personagem por conta Roblox; perfil identificado a partir do `UserId`, sem slots.
+- **Decisão de produto incorporada:** até três personagens por conta Roblox; cada perfil deve ser identificado e persistido separadamente, associado ao `UserId` proprietário.
 - **Possibilidade futura registrada:** avaliar mudança de classe em etapa própria, sem regras definidas nesta proposta.
 - **Próximo passo:** revisão das decisões ainda pendentes e recuperação dos textos integrais dos Documentos 12/13, se disponíveis. Só então consolidar contrato aprovado e iniciar implementação.
