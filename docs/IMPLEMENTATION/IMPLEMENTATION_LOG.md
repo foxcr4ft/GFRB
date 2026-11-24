@@ -68,3 +68,13 @@ A baseline é uma consolidação a partir do histórico disponível. Ela não af
 - Próxima etapa: contrato técnico de dados do personagem e persistência, antes de qualquer DataStore.
 - Criada a proposta `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md`, ainda não aprovada. DataStore não implementado.
 - Atualizados roadmap, README e estado da Foundation para refletir as integrações reais.
+
+
+## PR #5 — complementação da proposta de persistência — 2026-11-23
+
+- Criado `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_TECHNICAL_BASELINE_0_1.md` como proposta técnica complementar, sem substituir documentos aprovados.
+- Registrada arquitetura candidata de registro agregado por conta (até três personagens), chave derivada no servidor, operações atômicas com `UpdateAsync()`, bloqueio de sessão com token/epoch, payload mínimo candidato, validação de tamanho, ambientes separados, salvamento, migração, falhas e matriz de testes.
+- Regras de slot 1/2/3 e exclusão permanente imediata foram preservadas; disponibilidade de slots é derivada dos personagens existentes e seus níveis.
+- Consultadas referências oficiais do Roblox Creator Hub para limites de DataStore, `UpdateAsync()`, budgets, acesso de Studio, session locking e `BindToClose()`.
+- Pendências de produto/documentação preservadas: fluxo detalhado do HUB, personalização visual adicional, catálogo de classes e semântica de nível, domínios finais do MVP, experiência em indisponibilidade, política de privacidade/retenção e textos integrais dos Documentos 12/13.
+- Nenhum código DataStore ou teste de persistência foi implementado/executado. PR #5 continua draft e não mesclada; merge reservado ao usuário.
