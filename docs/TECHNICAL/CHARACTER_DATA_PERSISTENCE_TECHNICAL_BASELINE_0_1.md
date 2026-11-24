@@ -159,12 +159,13 @@ Além dos casos do contrato principal, cobrir:
 
 ## 11. Fontes técnicas oficiais consultadas
 
-- Roblox Creator Hub — Data Stores: `GetAsync`, `UpdateAsync`, cache, chamadas de rede e acesso de Studio.
-- Roblox Creator Hub — Data store error codes and limits: limites de 50 caracteres para nome/chave/escopo, 4.194.304 caracteres por valor e budgets/throttling.
-- Roblox Creator Hub — Player data and purchasing: padrão de session locking usando `UpdateAsync()`.
-- Roblox Creator Hub — DataModel: `BindToClose()` e limite de espera de 30 segundos.
+- [Roblox Creator Hub — Data Stores](https://create.roblox.com/docs/cloud-services/data-stores): `GetAsync`, `UpdateAsync`, cache, chamadas de rede e acesso de Studio.
+- [Roblox Creator Hub — Data store error codes and limits](https://create.roblox.com/docs/cloud-services/data-stores/error-codes-and-limits): limites de 50 caracteres para nome/chave/escopo, 4.194.304 caracteres por valor, budgets e throttling.
+- [Roblox Creator Hub — Player data and purchasing](https://create.roblox.com/docs/cloud-services/data-stores/player-data-purchasing): padrão de session locking usando `UpdateAsync()`.
+- [Roblox Creator Hub — DataModel](https://create.roblox.com/docs/reference/engine/classes/DataModel): `BindToClose()` e limite de espera de 30 segundos.
+- [Roblox Creator Hub — Data store versioning, listing and caching](https://create.roblox.com/docs/cloud-services/data-stores/versioning-listing-and-caching): limites e retenção do versionamento automático.
 
-As referências oficiais estão vinculadas na descrição da PR. Limites e comportamento devem ser reconfirmados na implementação, pois a plataforma pode mudar.
+Limites e comportamento devem ser reconfirmados na implementação, pois a plataforma pode mudar.
 
 ## 12. Pendências que este adendo não pode decidir
 
