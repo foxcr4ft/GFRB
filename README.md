@@ -13,6 +13,7 @@ Repositório oficial de documentação, decisões, implementação e histórico 
 - Histórico de entregas: [Implementation Log](docs/IMPLEMENTATION/IMPLEMENTATION_LOG.md)
 - Fundação técnica 0.1: [Foundation 0.1](docs/IMPLEMENTATION/FOUNDATION_0_1.md)
 - Proposta de contrato de persistência: [Character Data and Persistence Contract 0.1](docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md)
+- Baseline técnica complementar (proposta): [Character Data Persistence Technical Baseline 0.1](docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_TECHNICAL_BASELINE_0_1.md)
 
 ## Regras de trabalho
 
@@ -32,8 +33,8 @@ Repositório oficial de documentação, decisões, implementação e histórico 
 - PR #3 (recuperação documental) e PR #4 (protocolo de desenvolvimento) integradas à `main`.
 - Foundation 0.1 integrada pela PR #2, validada em Studio e GitHub Actions.
 - Place de validação salvo no Team Create; experiência não publicada.
-- Etapa 2 em especificação: contrato de dados do personagem e persistência.
-- DataStore e esquema persistente ainda não implementados.
+- Etapa 2 em especificação: contrato e baseline técnica complementar de persistência documentados como propostas ainda não aprovadas.
+- DataStore e esquema persistente ainda não implementados; pendências de produto e confronto com os Documentos 12/13 permanecem.
 - O catálogo de documentos distingue textos aprovados recuperados de textos ainda não recuperados integralmente.
 
 ## Estrutura
