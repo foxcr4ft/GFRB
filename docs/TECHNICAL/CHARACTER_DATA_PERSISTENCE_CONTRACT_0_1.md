@@ -65,7 +65,7 @@ Regras propostas:
 
 **Exclusão imediata:** o usuário deverá selecionar explicitamente o personagem e confirmar a exclusão. Após a confirmação, a exclusão será permanente, sem período de espera, recurso ou cancelamento posterior. O servidor deverá validar a propriedade e a confirmação antes de executar a exclusão.
 
-A estrutura e as chaves concretas do DataStore continuam sendo decisões técnicas a detalhar, mas devem permitir localizar, proteger e isolar separadamente até três perfis pertencentes à mesma conta.
+A estrutura proposta de armazenamento, chave por conta, payload mínimo candidato, bloqueio de sessão, salvamento, exclusão atômica e limites da plataforma está documentada em [Baseline Técnica Complementar 0.1](CHARACTER_DATA_PERSISTENCE_TECHNICAL_BASELINE_0_1.md). Essas definições permanecem PROPOSTAS TÉCNICAS — NÃO APROVADAS.
 
 **Possibilidade futura, ainda não aprovada como sistema:** o usuário indicou que uma possível mudança de classe poderá ser avaliada no futuro. Isso não autoriza definir agora regras, custos, frequência, restrições, preservação de progresso ou fluxo de mudança. A possibilidade é independente da quantidade de personagens por conta.
 
@@ -218,18 +218,18 @@ A etapa só pode passar para implementação quando:
 
 ## 13. Decisões que exigem o usuário
 
-Estas questões não devem ser decididas por conveniência técnica:
+Estas questões continuam dependendo de decisão ou de fonte documental aprovada:
 
-1. O comportamento após a exclusão do próprio personagem que ocupa um slot adicional está decidido: a exclusão é imediata e o slot volta a ficar bloqueado no mesmo momento.
-2. Como será o fluxo de criação e seleção no HUB?
-4. Haverá personalização visual além das opções masculina/feminina por classe?
-5. Quais domínios de dados entram no MVP persistente e quais documentos aprovados fornecem seus campos e invariantes?
-6. Qual deve ser a experiência do jogador quando os dados não puderem ser carregados por indisponibilidade prolongada?
-7. Há política adicional de exclusão/retensão de dados definida em documento aprovado ainda não recuperado?
+1. Qual será o fluxo detalhado de criação e seleção no HUB? A existência do HUB e suas funções de criação, seleção e exclusão já está decidida; a sequência de telas, controles e transições ainda não.
+2. Haverá personalização visual além das opções masculina/feminina por classe?
+3. Quais domínios adicionais de gameplay entram no MVP persistente e quais documentos aprovados fornecem seus campos e invariantes? A baseline técnica complementar propõe somente os metadados mínimos de identidade, slot, classe, apresentação e nível, sem aprovar fórmulas ou outros domínios.
+4. Qual será a experiência exata do jogador durante indisponibilidade prolongada do DataStore? A regra técnica de segurança é não criar perfil vazio nem permitir mutações sem carga confirmada; apresentação, tentativas e encerramento da sessão ainda dependem de decisão.
+5. Qual política de privacidade, retenção e publicação deve ser aplicada, considerando também o comportamento de versionamento da plataforma?
+6. Como os contratos finais devem ser confrontados com os textos integrais aprovados dos Documentos 12 e 13, que ainda não foram recuperados nesta branch/repositório?
 
 **Nota de escopo futuro:** uma eventual mudança de classe foi mencionada como possibilidade a avaliar posteriormente. Nenhuma regra desse sistema está aprovada ou especificada por esta proposta.
 
-As decisões técnicas sobre implementação interna da concessão de sessão, retries e adaptadores podem ser refinadas como propostas reversíveis após as dependências acima.
+As decisões técnicas reversíveis sobre armazenamento, chaves, lease, fencing token, UpdateAsync, orçamento, tamanho e encerramento estão detalhadas no adendo técnico. Os parâmetros numéricos de lease, renovação, retry, autosave e limites operacionais devem ser definidos por testes e medição, não por suposição.
 
 ## 14. Registro de estado
 
@@ -239,4 +239,5 @@ As decisões técnicas sobre implementação interna da concessão de sessão, r
 - **Decisões de produto incorporadas:** até três personagens por conta; um slot inicial; segundo slot ao nível 25 e terceiro ao nível 80; opções masculina/feminina por classe; HUB para criação/seleção/exclusão; exclusão permanente imediata após seleção e confirmação. Cada perfil deve ser identificado e persistido separadamente, associado ao `UserId` proprietário.
 - **Pendente de game design:** personalização visual adicional não decidida. O comportamento dos slots após exclusão está definido: o slot adicional volta a ficar bloqueado imediatamente após a exclusão do personagem que o ocupa.
 - **Possibilidade futura registrada:** avaliar mudança de classe em etapa própria, sem regras definidas nesta proposta.
-- **Próximo passo:** revisão das decisões ainda pendentes e recuperação dos textos integrais dos Documentos 12/13, se disponíveis. Só então consolidar contrato aprovado e iniciar implementação.
+- **Complemento técnico:** [Baseline Técnica Complementar 0.1](CHARACTER_DATA_PERSISTENCE_TECHNICAL_BASELINE_0_1.md), proposta não aprovada.
+- **Próximo passo:** resolver as pendências de produto/documentação listadas na seção 13, revisar o contrato e seu adendo, e então solicitar aprovação explícita. A implementação de DataStore só começa após essa aprovação.
