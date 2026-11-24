@@ -60,3 +60,16 @@ Cada tarefa deve usar os estados:
 - DEFERRED — planejada para etapa posterior.
 
 Nunca usar IMPLEMENTED como sinônimo de TESTED.
+
+
+## 7. Estado de execução — atualização 2026-11-23
+
+- PR #2 — Foundation 0.1: MERGED; 10/10 testes Luau, GitHub Actions (testes e build Rojo) e validação Studio registrados.
+- PR #3 — Document Recovery 0.1: MERGED.
+- PR #4 — Aethermoor Development Protocol 0.1: MERGED.
+- Etapa 2 — contrato de dados e persistência: SPEC IN PROGRESS.
+- Proposta técnica 0.1 e Baseline Técnica Complementar 0.1 registradas na PR #5; ambas NÃO APROVADAS.
+- A baseline cobre proposta de registro agregado por conta, chave derivada no servidor, payload mínimo candidato, UpdateAsync, lease/fencing token, salvamento, migração, falhas, limites oficiais e matriz de testes.
+- DataStore: NÃO IMPLEMENTADO; nenhuma chamada real ao serviço foi adicionada.
+- Decisões de produto registradas na proposta: até três personagens por conta; um slot inicial, segundo liberado no nível 25 e terceiro no nível 80; cada slot adicional permanece disponível enquanto existir um personagem criado nele, mesmo que o personagem que atingiu o marco seja excluído; se o próprio ocupante for excluído, o slot volta a ficar bloqueado imediatamente até novo marco de nível; criação inicial masculina/feminina por classe; HUB para criação/seleção/exclusão; exclusão permanente imediata após seleção e confirmação.
+- Pendências de etapa 2: fluxo detalhado do HUB; personalização visual adicional; catálogo oficial de classes e semântica de nível; aprovação dos domínios persistentes do MVP; UX durante indisponibilidade prolongada; política de privacidade/retenção; confronto com os textos integrais dos Documentos 12 e 13, ainda não recuperados.
