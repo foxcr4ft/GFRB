@@ -19,7 +19,7 @@
 |---|---|---|
 | 0 | Repositório, documentação-base e estrutura de projeto | IMPLEMENTED — PRs documentais #3 e #4 integradas |
 | 1 | Fundação Roblox: bootstraps, configuração, serviços e registro de mapas | IMPLEMENTED + TESTED — PR #2 integrada; 10/10 testes Luau, CI e build Rojo aprovados; validação Studio registrada |
-| 2 | Contrato de dados do personagem e persistência | SPEC IN PROGRESS — proposta técnica 0.1 em revisão; DataStore não implementado |
+| 2 | Contrato de dados do personagem e persistência | SPEC IN PROGRESS — contrato 0.1 + baseline técnica complementar documentados como propostas; pendente aprovação e decisões de produto/documentos originais; DataStore não implementado |
 | 3 | Personagem, progressão, classes e atributos | BLOCKED por regras/formulas aprovadas |
 | 4 | Combate, habilidades, inimigos e chefes | BLOCKED por especificação de combate |
 | 5 | Inventário, itens e equipamentos | BLOCKED por contratos e regras |
@@ -55,7 +55,7 @@ A etapa 2 é contract-first. Antes de DataStore, concluir e aprovar:
 7. Migrações, compatibilidade e rollback.
 8. Testes automatizados e de integração.
 
-A proposta técnica 0.1 em `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md` registra as decisões de produto sobre slots, criação, HUB e exclusão imediata, além das questões ainda não decididas. Personalização visual adicional continua sem decisão. O contrato não está aprovado e não autoriza implementação de DataStore.
+A proposta técnica 0.1 em `docs/TECHNICAL/CHARACTER_DATA_PERSISTENCE_CONTRACT_0_1.md` e a [Baseline Técnica Complementar 0.1](../TECHNICAL/CHARACTER_DATA_PERSISTENCE_TECHNICAL_BASELINE_0_1.md) documentam as regras aprovadas de personagens/slots/exclusão e uma arquitetura técnica candidata: registro agregado por conta, chave derivada no servidor, UpdateAsync, bloqueio de sessão, payload mínimo candidato, salvamento, migração, falhas, limites e testes. Ambos os textos continuam PROPOSTAS NÃO APROVADAS. Permanecem pendentes o fluxo detalhado do HUB, personalização visual adicional, catálogo oficial de classes/semântica de nível, aprovação dos domínios persistentes do MVP, UX de indisponibilidade, política de privacidade/retenção e confronto com os textos integrais dos Documentos 12 e 13. DataStore não está implementado e esta PR não autoriza gravar dados reais.
 
 ## Regra de avanço
 
